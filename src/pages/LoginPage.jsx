@@ -1,9 +1,32 @@
 import { useState } from "react"
 import { Mail, Lock } from "lucide-react"
+import { useNavigate } from "react-router-dom"
+import { supabase } from "../lib/supabase"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [rememberMe, setRememberMe] = useState(false)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const navigate = useNavigate()
+
+  const handleLogin = async () => {
+    setError("")
+    setLoading(true)
+
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+
+    setLoading(false)
+
+    if (error) {
+      setError(error.message)
+    } else {
+      navigate("/dashboard")
+    }
+  }
 
   return (
     <div className="min-h-screen bg-[#0d1117] flex items-center justify-center p-6">
@@ -35,6 +58,8 @@ export default function LoginPage() {
               <input
                 type="email"
                 placeholder="user@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="bg-transparent text-white placeholder-gray-500 text-sm outline-none w-full"
               />
             </div>
@@ -50,6 +75,8 @@ export default function LoginPage() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="bg-transparent text-white placeholder-gray-500 text-sm outline-none w-full"
               />
               <button
@@ -77,9 +104,18 @@ export default function LoginPage() {
             </button>
           </div>
 
+          {/* Error message */}
+          {error && (
+            <p className="text-red-400 text-sm text-center mb-4">{error}</p>
+          )}
+
           {/* Sign in button */}
-          <button className="w-full bg-[#EAB308] hover:bg-[#ca9a07] transition-colors text-black font-bold text-lg py-4 rounded-xl mb-6">
-            Sign in
+          <button
+            onClick={handleLogin}
+            disabled={loading}
+            className="w-full bg-[#EAB308] hover:bg-[#ca9a07] transition-colors text-black font-bold text-lg py-4 rounded-xl mb-6 disabled:opacity-50"
+          >
+            {loading ? "Signing in..." : "Sign in"}
           </button>
 
           {/* Divider */}
