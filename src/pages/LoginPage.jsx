@@ -126,7 +126,7 @@ export default function LoginPage() {
           </div>
 
           {/* Social buttons */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="mb-6">
             <button
               onClick={async () => {
                 await supabase.auth.signInWithOAuth({
@@ -136,12 +136,9 @@ export default function LoginPage() {
                   }
                 })
               }}
-              className="bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm"
+              className="w-full bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm"
             >
               Google
-            </button>
-            <button className="bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm">
-              Facebook
             </button>
           </div>
 
