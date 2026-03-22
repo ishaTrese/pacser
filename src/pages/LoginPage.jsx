@@ -127,7 +127,17 @@ export default function LoginPage() {
 
           {/* Social buttons */}
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <button className="bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm">
+            <button
+              onClick={async () => {
+                await supabase.auth.signInWithOAuth({
+                  provider: 'google',
+                  options: {
+                    redirectTo: 'http://localhost:5173/dashboard'
+                  }
+                })
+              }}
+              className="bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm"
+            >
               Google
             </button>
             <button className="bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm">
