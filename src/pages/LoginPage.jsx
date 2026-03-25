@@ -121,7 +121,7 @@ export default function LoginPage() {
           {/* Divider */}
           <div className="flex items-center gap-4 mb-4">
             <div className="flex-1 h-px bg-gray-600" />
-            <span className="text-gray-400 text-sm">or continue with</span>
+            <span className="text-gray-400 text-sm">or</span>
             <div className="flex-1 h-px bg-gray-600" />
           </div>
 
@@ -141,7 +141,7 @@ export default function LoginPage() {
               }}
               className="w-full bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-lg text-sm"
             >
-              Google
+              Sign in with Google
             </button>
           </div>
 

@@ -202,7 +202,7 @@ export default function RegisterPage() {
           {/* Divider */}
           <div className="flex items-center gap-4 mb-3">
             <div className="flex-1 h-px bg-gray-600" />
-            <span className="text-gray-400 text-xs">or continue with</span>
+            <span className="text-gray-400 text-xs">or</span>
             <div className="flex-1 h-px bg-gray-600" />
           </div>
 
@@ -221,7 +221,7 @@ export default function RegisterPage() {
               }}
               className="w-full bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-lg text-xs"
             >
-              Google
+              Continue with Google
             </button>
           </div>
 
