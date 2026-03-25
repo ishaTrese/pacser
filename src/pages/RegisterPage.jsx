@@ -67,22 +67,22 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0d1117] flex items-center justify-center p-6">
+    <div className="h-screen bg-[#0d1117] flex items-center justify-center p-6 overflow-hidden">
 
       {/* Left side - Logo — identical to LoginPage */}
       <div className="hidden lg:flex items-center justify-center w-[420px] mr-8">
-        <div className="bg-white rounded-2xl p-10 w-72 h-72 flex items-center justify-center shadow-2xl">
+        <div className="bg-white rounded-xl p-10 w-72 h-72 flex items-center justify-center shadow-2xl">
           <img src="/src/assets/chq-logo.png" alt="CHQ Logo" className="w-full h-full object-contain" />
         </div>
       </div>
 
       {/* Right side - identical card shell to LoginPage */}
       <div className="w-full max-w-[540px]">
-        <div className="border border-[#EAB308] rounded-2xl p-10 bg-[#1a2235]">
+        <div className="border border-[#EAB308] rounded-xl p-10 bg-[#1a2235] h-[600px] flex flex-col justify-center">
 
           {/* Header — smaller font to save space */}
-          <div className="text-center mb-4">
-            <h1 className="text-white text-2xl font-bold mb-1">Create an Account</h1>
+          <div className="text-center mb-3">
+            <h1 className="text-white text-xl font-bold mb-1">Create an Account</h1>
             <p className="text-gray-400 text-xs">Start your Civil Service journey today</p>
           </div>
 
@@ -90,7 +90,7 @@ export default function RegisterPage() {
           <div className="flex gap-3 mb-3">
             <div className="flex-1">
               <label className="text-white font-semibold text-xs mb-1 block">First Name</label>
-              <div className="flex items-center bg-[#243044] rounded-xl px-4 py-2 gap-3">
+              <div className="flex items-center bg-[#243044] rounded-lg px-4 py-2 gap-3">
                 <User className="text-gray-400 w-4 h-4 shrink-0" />
                 <input
                   type="text"
@@ -105,7 +105,7 @@ export default function RegisterPage() {
             </div>
             <div className="flex-1">
               <label className="text-white font-semibold text-xs mb-1 block">Last Name</label>
-              <div className="flex items-center bg-[#243044] rounded-xl px-4 py-2 gap-3">
+              <div className="flex items-center bg-[#243044] rounded-lg px-4 py-2 gap-3">
                 <User className="text-gray-400 w-4 h-4 shrink-0" />
                 <input
                   type="text"
@@ -123,7 +123,7 @@ export default function RegisterPage() {
           {/* Email */}
           <div className="mb-3">
             <label className="text-white font-semibold text-xs mb-1 block">Email Address</label>
-            <div className="flex items-center bg-[#243044] rounded-xl px-4 py-2 gap-3">
+            <div className="flex items-center bg-[#243044] rounded-lg px-4 py-2 gap-3">
               <Mail className="text-gray-400 w-4 h-4 shrink-0" />
               <input
                 type="email"
@@ -140,7 +140,7 @@ export default function RegisterPage() {
           {/* Password */}
           <div className="mb-3">
             <label className="text-white font-semibold text-xs mb-1 block">Password</label>
-            <div className="flex items-center bg-[#243044] rounded-xl px-4 py-2 gap-3">
+            <div className="flex items-center bg-[#243044] rounded-lg px-4 py-2 gap-3">
               <Lock className="text-gray-400 w-4 h-4 shrink-0" />
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -164,7 +164,7 @@ export default function RegisterPage() {
           {/* Confirm Password */}
           <div className="mb-3">
             <label className="text-white font-semibold text-xs mb-1 block">Confirm Password</label>
-            <div className="flex items-center bg-[#243044] rounded-xl px-4 py-2 gap-3">
+            <div className="flex items-center bg-[#243044] rounded-lg px-4 py-2 gap-3">
               <Lock className="text-gray-400 w-4 h-4 shrink-0" />
               <input
                 type={showConfirm ? 'text' : 'password'}
@@ -194,20 +194,20 @@ export default function RegisterPage() {
           <button
             onClick={handleRegister}
             disabled={loading}
-            className="w-full bg-[#EAB308] hover:bg-[#ca9a07] transition-colors text-black font-bold text-base py-3 rounded-xl mb-4 disabled:opacity-50"
+            className="w-full bg-[#EAB308] hover:bg-[#ca9a07] transition-colors text-black font-bold text-base py-3 rounded-lg mb-3 disabled:opacity-50"
           >
             {loading ? 'Creating account...' : 'Create Account'}
           </button>
 
           {/* Divider */}
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex items-center gap-4 mb-3">
             <div className="flex-1 h-px bg-gray-600" />
-            <span className="text-gray-400 text-sm">or continue with</span>
+            <span className="text-gray-400 text-xs">or continue with</span>
             <div className="flex-1 h-px bg-gray-600" />
           </div>
 
           {/* Google button */}
-          <div className="mb-4">
+          <div className="mb-3">
             <button
               type="button"
               onClick={async () => {
@@ -219,14 +219,14 @@ export default function RegisterPage() {
                   }
                 })
               }}
-              className="w-full bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm"
+              className="w-full bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-lg text-xs"
             >
               Google
             </button>
           </div>
 
           {/* Login link */}
-          <p className="text-center text-gray-400 text-sm">
+          <p className="text-center text-gray-400 text-xs">
             Already have an account?{' '}
             <Link to="/" className="text-[#EAB308] font-semibold hover:underline">
               Log in

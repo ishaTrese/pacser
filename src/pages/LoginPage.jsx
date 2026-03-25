@@ -29,31 +29,31 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0d1117] flex items-center justify-center p-6">
+    <div className="h-screen bg-[#0d1117] flex items-center justify-center p-6 overflow-hidden">
       
       {/* Left side - Logo */}
       <div className="hidden lg:flex items-center justify-center w-[420px] mr-8">
-        <div className="bg-white rounded-2xl p-10 w-72 h-72 flex items-center justify-center shadow-2xl">
+        <div className="bg-white rounded-xl p-10 w-72 h-72 flex items-center justify-center shadow-2xl">
           <img src="/src/assets/chq-logo.png" alt="CHQ Logo" className="w-full h-full object-contain" />
         </div>
       </div>
 
       {/* Right side - Login card */}
       <div className="w-full max-w-[540px]">
-        <div className="border border-[#EAB308] rounded-2xl p-10 bg-[#1a2235]">
+        <div className="border border-[#EAB308] rounded-xl p-10 bg-[#1a2235] h-[600px] flex flex-col justify-center">
           
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <h1 className="text-white text-3xl font-bold mb-2">Welcome Back, User!</h1>
             <p className="text-gray-400 text-sm">Sign in to continue your learning journey</p>
           </div>
 
           {/* Email field */}
-          <div className="mb-5">
+          <div className="mb-3">
             <label className="text-white font-semibold text-sm mb-2 block">
               Email Address
             </label>
-            <div className="flex items-center bg-[#243044] rounded-xl px-4 py-3 gap-3">
+            <div className="flex items-center bg-[#243044] rounded-lg px-4 py-3 gap-3">
               <Mail className="text-gray-400 w-5 h-5 shrink-0" />
               <input
                 type="email"
@@ -66,11 +66,11 @@ export default function LoginPage() {
           </div>
 
           {/* Password field */}
-          <div className="mb-5">
+          <div className="mb-3">
             <label className="text-white font-semibold text-sm mb-2 block">
               Password
             </label>
-            <div className="flex items-center bg-[#243044] rounded-xl px-4 py-3 gap-3">
+            <div className="flex items-center bg-[#243044] rounded-lg px-4 py-3 gap-3">
               <Lock className="text-gray-400 w-5 h-5 shrink-0" />
               <input
                 type={showPassword ? "text" : "password"}
@@ -81,7 +81,7 @@ export default function LoginPage() {
               />
               <button
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-gray-500 hover:text-gray-300 text-xs shrink-0"
+                className="text-gray-500 hover:text-gray-300 text-sm shrink-0"
               >
                 {showPassword ? "Hide" : "Show"}
               </button>
@@ -89,7 +89,7 @@ export default function LoginPage() {
           </div>
 
           {/* Remember me + Forgot password */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-3">
             <label className="flex items-center gap-2 cursor-pointer">
               <div
                 onClick={() => setRememberMe(!rememberMe)}
@@ -106,27 +106,27 @@ export default function LoginPage() {
 
           {/* Error message */}
           {error && (
-            <p className="text-red-400 text-sm text-center mb-4">{error}</p>
+            <p className="text-red-400 text-sm text-center mb-2">{error}</p>
           )}
 
           {/* Sign in button */}
           <button
             onClick={handleLogin}
             disabled={loading}
-            className="w-full bg-[#EAB308] hover:bg-[#ca9a07] transition-colors text-black font-bold text-lg py-4 rounded-xl mb-6 disabled:opacity-50"
+            className="w-full bg-[#EAB308] hover:bg-[#ca9a07] transition-colors text-black font-bold text-lg py-4 rounded-lg mb-4 disabled:opacity-50"
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
 
           {/* Divider */}
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-4">
             <div className="flex-1 h-px bg-gray-600" />
             <span className="text-gray-400 text-sm">or continue with</span>
             <div className="flex-1 h-px bg-gray-600" />
           </div>
 
           {/* Social buttons */}
-          <div className="mb-6">
+          <div className="mb-4">
             <button
               onClick={async () => {
                 await supabase.auth.signInWithOAuth({
@@ -139,7 +139,7 @@ export default function LoginPage() {
                   }
                 })
               }}
-              className="w-full bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-xl text-sm"
+              className="w-full bg-[#243044] hover:bg-[#2d3c54] transition-colors text-white font-semibold py-3 rounded-lg text-sm"
             >
               Google
             </button>
