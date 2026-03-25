@@ -84,6 +84,9 @@ The file should be named exactly `.env` and look like this:
 ```
 VITE_SUPABASE_URL=https://your-project-id.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key-here
+```
+
+
 
 ---
 
