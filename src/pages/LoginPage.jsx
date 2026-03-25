@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Mail, Lock } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { supabase } from "../lib/supabase"
 
 export default function LoginPage() {
@@ -132,7 +132,10 @@ export default function LoginPage() {
                 await supabase.auth.signInWithOAuth({
                   provider: 'google',
                   options: {
-                    redirectTo: 'http://localhost:5173/dashboard'
+                    redirectTo: 'http://localhost:5173/dashboard',
+                    queryParams: {
+                      prompt: 'select_account'
+                    }
                   }
                 })
               }}
@@ -145,9 +148,9 @@ export default function LoginPage() {
           {/* Create account */}
           <p className="text-center text-gray-400 text-sm">
             Don't have an account?{" "}
-            <button className="text-[#EAB308] font-semibold hover:underline">
+            <Link to="/register" className="text-[#EAB308] font-semibold hover:underline">
               Create one now
-            </button>
+            </Link>   
           </p>
         </div>
 
